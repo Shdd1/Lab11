@@ -55,7 +55,7 @@ public class PostService {
     //************** get all post by user_id **************************
     public List<Post> allPostByUserId(Integer userId){
             List<Post> p=postRepository.findPostByUserId(userId);
-        if(p==null){
+        if(p.isEmpty()){
             throw new ApiExeption("not found");
         }
         return p;
@@ -65,7 +65,7 @@ public class PostService {
     //***************** get post by title *****************************
     public List<Post> postByTitle(String title){
         List<Post> p=postRepository.findPostByTitle(title);
-        if(p==null){
+        if(p.isEmpty()){
             throw new ApiExeption("not found");
         }
         return p;
@@ -73,7 +73,7 @@ public class PostService {
     //**************get all post before date by date***************
     public List<Post> postBeforeDate(LocalDate date){
         List<Post> p=postRepository.getAllPostBeforeDate(date);
-        if(p==null){
+        if(p.isEmpty()){
             throw new ApiExeption("not found");
         }
         return p;
@@ -81,7 +81,7 @@ public class PostService {
     //7.************* get post by category and between two date*****************
     public List<Post>getpostByCategoryAndBetweenTwoDate(Integer categoryId,LocalDate date1,LocalDate date2){
         List<Post> p=postRepository.getPostByCategoryIdAndAndPublishDate(categoryId,date1,date2);
-        if(p==null){
+        if(p.isEmpty()){
             throw new ApiExeption("not found");
         }
         return p;
