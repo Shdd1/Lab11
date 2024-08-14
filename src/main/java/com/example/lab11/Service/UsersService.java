@@ -42,7 +42,7 @@ public class UsersService {
     //6.************get Users By Registration Date****************
     public List<Users> getUserByRegistrationDate(LocalDate date){
        List<Users>  u=userRepository.getUserByRegistrationDate(date);
-        if(u==null){
+        if(u.isEmpty()){
             throw new ApiExeption("user not found");
         }
      return u;
