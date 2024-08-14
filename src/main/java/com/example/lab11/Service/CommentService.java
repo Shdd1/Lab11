@@ -52,7 +52,7 @@ public class CommentService {
    //**************** get all comment for one post by post_id*******************
     public List<Comment> getCommentByPostId(Integer postId){
         List<Comment> c=commentRepository.getAllCommentByPostId(postId);
-        if(c==null){
+        if(c.isEmpty()){
             throw new ApiExeption("post not found");
         }
         return c;
@@ -60,7 +60,7 @@ public class CommentService {
     //5.*************** get Comment between two date**************
     public List<Comment> getCommentBetweenTwoDate(LocalDate date1, LocalDate date2){
         List<Comment> c=commentRepository.getALLCommentBetweenTowDate(date1,date2);
-        if(c==null){
+        if(c.isEmpty()){
             throw new ApiExeption("not found");
         }
         return c;
